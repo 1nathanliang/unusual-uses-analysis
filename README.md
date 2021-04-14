@@ -1,7 +1,9 @@
+This repo contains scripts for an unpublished package created by and forked from Judith Mildner, a graduate student researcher in Dr. Diana Tamir's Princeton Social Neuroscience Laboratory at Princeton University's Department of Psychology.
+
 This repo contains 4 measures of creativity from unusual uses/alternative uses tasks.
 
 1. Fluency:
-    number of responses given by a participant. Responses that are highly similar are collapsed into 1 before counting
+    number of responses given by a participant. Responses that are highly similar are collapsed into one before counting
 2. Elaboration:
     number of words per response (after removing stopwords)
 3. Flexibility:
@@ -11,4 +13,4 @@ This repo contains 4 measures of creativity from unusual uses/alternative uses t
     
 To get a single creativity score per participant, Z score each of these and average them.
 
-The file `example_run.py` contains an example analysis.
+The files `nathan_run_S1.py` and `nathan_run_S2.py` are the scripts which were compiled.

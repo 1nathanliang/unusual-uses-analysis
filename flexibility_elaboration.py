@@ -10,7 +10,7 @@ msg_prefix = '[FLEX] '
 
 
 def calc_similarity(clean_response, target, nlp):
-    """Calculate the similarity between response and target using Spacy
+    """Calculate the similarity between response and target using SpaCy
 
     Arguments
     ---------
@@ -31,7 +31,8 @@ def calc_similarity(clean_response, target, nlp):
 
 
 def bootstrap_similarity(word_counts, target):
-    """Calculate the average similarity for random words of each response length.
+    """
+    Calculate the average similarity for random words of each response length.
 
     Longer responses have higher similarity. To control for this, draw random words 10,000 times for each response
     length. Calculate the average similarity for each response length. To save time, store bootstrap data for each
@@ -79,6 +80,8 @@ def bootstrap_similarity(word_counts, target):
             sim_to_target = nlp_smaller(sampled_text).similarity(nlp_smaller(target))
             sample_sims.append(sim_to_target)
         bootstrapped_sims[sample_size] = np.mean(sample_sims)
+
+
     boot_file = open(boot_filename, 'wb')
     pickle.dump(bootstrapped_sims, boot_file, -1)
     boot_file.close()

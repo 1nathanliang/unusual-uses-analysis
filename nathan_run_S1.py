@@ -5,9 +5,11 @@ from transform_data_by_response import transform_data_by_response
 from fluency import calc_fluency
 from flexibility_elaboration import calc_flexibility_and_elaboration
 from originality import calc_originality
+import time
 
+tic = time.time()
 
-raw_data = pd.read_csv('data/raw_example_data.csv')
+raw_data = pd.read_csv('data/S1/mildner_S1.csv')
 data_by_response = transform_data_by_response(raw_data, delimiter='/', id_column='ID',
                                               response_column='Alternative Uses')
 creativity = pd.DataFrame({'responseID': data_by_response.responseID,
@@ -18,7 +20,7 @@ creativity = pd.DataFrame({'responseID': data_by_response.responseID,
 nlp = spacy.load('en_vectors_web_lg')
 creativity['fluency'] = calc_fluency(data_by_response, nlp, id_column='ID', response_column='response')
 creativity[['clean_response', 'elaboration', 'flexibility']] = \
-    calc_flexibility_and_elaboration(list(data_by_response.response), u'pen', nlp)
+    calc_flexibility_and_elaboration(list(data_by_response.response), u'brick', nlp)
 creativity['originality'] = calc_originality(data_by_response.response)
 
 
@@ -53,3 +55,12 @@ creativity_by_participant['z_fluency'] = z_score(creativity_by_participant['flue
 
 creativity_by_participant['creativity_score'] = creativity_by_participant[
     ['z_elaboration', 'z_flexibility', 'z_originality', 'z_fluency']].mean(axis=1)
+
+# creativity = creativity.sort_index(by=['ID Name'], ascending=[True])
+
+# creativity_by_participant
+
+creativity.to_csv('data/S1/runs_S1/mildner_run1_S1.csv')
+creativity_by_participant.to_csv('data/S1/runs_S1/mildner_by_participant_run1_S1.csv')
+toc = (time.time() - tic)/60
+print('Time to run: ' + str(toc) + ' minutes')
