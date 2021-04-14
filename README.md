@@ -1,4 +1,4 @@
-This repo contains scripts for an unpublished package created by and forked from Judith Mildner, a graduate student researcher in Dr. Diana Tamir's Princeton Social Neuroscience Laboratory at Princeton University's Department of Psychology.
+This repo contains scripts for an unpublished package created by and forked from <a href='https://github.com/jnmildner'>Judith Mildner</a>, a graduate student researcher in Dr. Diana Tamir's Princeton Social Neuroscience Laboratory at Princeton University's Department of Psychology.
 
 This repo contains 4 measures of creativity from unusual uses/alternative uses tasks.
 
